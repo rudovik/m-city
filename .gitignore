@@ -9,7 +9,6 @@
 /coverage
 
 .eslintcache
-firebase.js
 
 # production
 /build

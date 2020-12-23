@@ -31,7 +31,6 @@ const Blocks = () => {
   const [matches, setMatches] = useState(null)
 
   useEffect(() => {
-    console.log(matches)
     if (matches === null) {
       fetchMatches(setMatches)
     }
