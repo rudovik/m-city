@@ -2,13 +2,13 @@ import Layout from './HOC/Layout'
 import { Switch, Route } from 'react-router-dom'
 
 import Home from './components/Home/Home'
-import SignIn from './components/SignIn/SignIn'
+import LogIn from './components/LogIn/LogIn'
 
 function Routes() {
   return (
     <Layout>
       <Switch>
-        <SignIn exact component={SignIn} path='/sign_in' />
+        <LogIn exact component={LogIn} path='/log_in' />
         <Route exact component={Home} path='/' />
       </Switch>
     </Layout>

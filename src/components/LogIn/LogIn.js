@@ -46,7 +46,7 @@ const submitForm = ({
       .auth()
       .signInWithEmailAndPassword(dataToSubmit.email, dataToSubmit.password)
       .then(() => {
-        console.log(dataToSubmit)
+        resetFormSuccess()
         history.push('/dashboard')
       })
       .catch((error) => {
@@ -73,7 +73,7 @@ const updateForm = ({ event, id }, { setState, state }) => {
   setState({ ...state, formData: newFormData, formError: false })
 }
 
-const SignIn = () => {
+const LogIn = () => {
   const [state, setState] = useState({
     formError: false,
     formSuccess: '',
@@ -145,4 +145,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn
+export default LogIn
