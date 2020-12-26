@@ -114,8 +114,9 @@ const Enroll = () => {
             >
               Enroll
             </button>
-            <div className='enroll_disclaimer'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <div className='enroll_discl'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quo
+              voluptas in fugit aliquam adipisci eius recusandae eum quidem nam!
             </div>
           </div>
         </form>

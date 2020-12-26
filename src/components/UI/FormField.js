@@ -4,10 +4,11 @@ const renderTemplate = ({ formData, id, change }) => {
   let formTemplate = null
 
   const showError = () => {
-    let errorMessage =
-      formData.validation && !formData.valid ? (
-        <div className='error_label'>{formData.validationMessage}</div>
-      ) : null
+    let errorMessage = (
+      <div className='error_label'>
+        {formData.validation && !formData.valid && formData.validationMessage}
+      </div>
+    )
 
     return errorMessage
   }
