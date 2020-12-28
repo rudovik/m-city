@@ -1,16 +1,23 @@
 import Layout from './HOC/Layout'
 import { Switch, Route } from 'react-router-dom'
 
+import PrivateRoute from './components/authRoutes/PrivateRoute'
+
 import Home from './components/Home/Home'
 import LogIn from './components/LogIn/LogIn'
 
 import Dashboard from './components/admin/Dashboard'
 
-function Routes() {
+function Routes({ user }) {
   return (
     <Layout>
       <Switch>
-        <Route exact component={Dashboard} path='/dashboard' />
+        <PrivateRoute
+          user={user}
+          path='/dashboard'
+          exact
+          component={Dashboard}
+        />
         <Route exact component={LogIn} path='/log_in' />
         <Route exact component={Home} path='/' />
       </Switch>
