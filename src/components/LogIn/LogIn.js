@@ -22,15 +22,15 @@ const submitForm = ({
       newFormData[key].validationMessage = ''
     }
 
-    setState({
-      ...state,
-      formData: newFormData,
-      formSuccess: type ? 'Congratulations' : 'Already on the database',
-    })
+    // setState({
+    //   ...state,
+    //   formData: newFormData,
+    //   formSuccess: type ? 'Congratulations' : 'Already on the database',
+    // })
 
-    setTimeout(() => {
-      setState({ ...state, formSuccess: '' })
-    }, 2000)
+    // setTimeout(() => {
+    //   setState({ ...state, formSuccess: '' })
+    // }, 2000)
   }
 
   let dataToSubmit = {}

@@ -34,6 +34,7 @@ const Blocks = () => {
     if (matches === null) {
       fetchMatches(setMatches)
     }
+    return () => setMatches(null)
   }, [matches])
 
   return <div className='home_matches'>{showMatches(matches)}</div>
