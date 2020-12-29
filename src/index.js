@@ -6,10 +6,10 @@ import './Resources/css/app.css'
 import { BrowserRouter } from 'react-router-dom'
 import { firebase } from './firebase'
 
-const App = ({ user }) => {
+const App = (props) => {
   return (
     <BrowserRouter>
-      <Routes user={user} />
+      <Routes {...props} />
     </BrowserRouter>
   )
 }
