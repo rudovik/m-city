@@ -95,8 +95,6 @@ const submitForm = ({ event, state: { formData }, setState, state }) => {
     }
   })
 
-  console.log(dataToSubmit)
-
   if (formIsValid) {
     if (state.formType === 'Edit Match') {
       firebaseDB
@@ -174,7 +172,7 @@ const AddEditMatch = ({
         config: {
           label: 'Result Local',
           name: 'result_local_input',
-          type: 'number',
+          type: 'text',
         },
         validation: {
           required: true,
@@ -207,7 +205,7 @@ const AddEditMatch = ({
         config: {
           label: 'Result Local',
           name: 'result_local_input',
-          type: 'number',
+          type: 'text',
         },
         validation: {
           required: true,
