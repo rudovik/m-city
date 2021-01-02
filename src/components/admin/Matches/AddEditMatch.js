@@ -7,15 +7,7 @@ import { validate } from '../../UI/Misc'
 import { firebaseTeams, firebaseDB, firebaseMatches } from '../../../firebase'
 import { firebaseLooper } from '../../UI/Misc'
 
-const updateFields = ({
-  match,
-  teamOptions,
-  teams,
-  type,
-  matchId,
-  state,
-  setState,
-}) => {
+const updateFields = ({ match, teamOptions, teams, type, state, setState }) => {
   const newFormData = {
     ...state.formData,
   }
@@ -32,13 +24,12 @@ const updateFields = ({
   setState({
     ...state,
     teams,
-    matchId,
     formType: type,
     formData: newFormData,
   })
 }
 
-const getTeams = ({ match, type, matchId, state, setState }) => {
+const getTeams = ({ match, type, state, setState }) => {
   firebaseTeams.once('value').then((snapshot) => {
     const teams = firebaseLooper(snapshot)
     const teamOptions = []
@@ -49,7 +40,7 @@ const getTeams = ({ match, type, matchId, state, setState }) => {
         value: childSnapshot.val().shortName,
       })
     })
-    updateFields({ match, teamOptions, teams, type, matchId, state, setState })
+    updateFields({ match, teamOptions, teams, type, state, setState })
   })
 }
 
@@ -127,7 +118,6 @@ const AddEditMatch = ({
   },
 }) => {
   const [state, setState] = useState({
-    matchId: '',
     formType: '',
     formError: false,
     formSuccess: '',
@@ -287,14 +277,14 @@ const AddEditMatch = ({
 
   useEffect(() => {
     if (!matchId) {
-      getTeams({ type: 'Add Match', matchId, state, setState })
+      getTeams({ type: 'Add Match', state, setState })
     } else {
       firebaseDB
         .ref(`matches/${matchId}`)
         .once('value')
         .then((snapshot) => {
           const match = snapshot.val()
-          getTeams({ match, type: 'Edit Match', matchId, state, setState })
+          getTeams({ match, type: 'Edit Match', state, setState })
         })
     }
     // eslint-disable-next-line

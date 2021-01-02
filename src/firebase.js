@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/app'
 import 'firebase/database'
 import 'firebase/auth'
+import 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBdffj1Fryrx8GfU_Q3jejK1Kv-8FI1wg0',
@@ -19,6 +20,7 @@ const firebaseDB = firebase.database()
 const firebaseMatches = firebaseDB.ref('matches')
 const firebasePromotions = firebaseDB.ref('promotions')
 const firebaseTeams = firebaseDB.ref('teams')
+const firebasePlayers = firebaseDB.ref('players')
 
 export {
   firebase,
@@ -26,4 +28,5 @@ export {
   firebasePromotions,
   firebaseTeams,
   firebaseDB,
+  firebasePlayers,
 }
