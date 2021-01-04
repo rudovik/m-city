@@ -1,7 +1,6 @@
 import React from 'react'
 
 const PlayerCard = ({ bck, name, lastname, number }) => {
-  console.log('Rendering')
   return (
     <div className='player_card_wrapper'>
       <div
