@@ -25,11 +25,11 @@ const Header = () => {
           </div>
         </div>
 
-        <Link to='/the team'>
+        <Link to='/the_team'>
           <Button color='inherit'>The team</Button>
         </Link>
 
-        <Link to='/the mateches'>
+        <Link to='/the_mateches'>
           <Button color='inherit'>Matches</Button>
         </Link>
       </Toolbar>
