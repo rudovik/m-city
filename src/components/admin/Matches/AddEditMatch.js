@@ -66,7 +66,13 @@ const successForm = ({ state, setState, message }) => {
   }, 2000)
 }
 
-const submitForm = ({ event, state: { formData }, setState, state }) => {
+const submitForm = ({
+  event,
+  state: { formData },
+  setState,
+  state,
+  matchId,
+}) => {
   event.preventDefault()
 
   let dataToSubmit = {}
@@ -89,7 +95,7 @@ const submitForm = ({ event, state: { formData }, setState, state }) => {
   if (formIsValid) {
     if (state.formType === 'Edit Match') {
       firebaseDB
-        .ref(`matches/${state.matchId}`)
+        .ref(`matches/${matchId}`)
         .update(dataToSubmit)
         .then(() => {
           successForm({ state, setState, message: 'Updated correctly' })
@@ -295,7 +301,11 @@ const AddEditMatch = ({
       <div className='editmatch_dialog_wrapper'>
         <h2>{state.formType}</h2>
         <div>
-          <form onSubmit={(event) => submitForm({ event, state, setState })}>
+          <form
+            onSubmit={(event) =>
+              submitForm({ event, state, setState, matchId })
+            }
+          >
             <FormField
               id={'date'}
               formData={state.formData.date}
@@ -384,7 +394,9 @@ const AddEditMatch = ({
             )}
             <div className='admin_submit'>
               <button
-                onClick={(event) => submitForm({ event, state, setState })}
+                onClick={(event) =>
+                  submitForm({ event, state, setState, matchId })
+                }
               >
                 {state.formType}
               </button>

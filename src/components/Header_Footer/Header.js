@@ -29,7 +29,7 @@ const Header = () => {
           <Button color='inherit'>The team</Button>
         </Link>
 
-        <Link to='/the_mateches'>
+        <Link to='/the_matches'>
           <Button color='inherit'>Matches</Button>
         </Link>
       </Toolbar>

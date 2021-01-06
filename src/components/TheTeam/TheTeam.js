@@ -53,7 +53,7 @@ const TheTeam = () => {
   let isMounted = useRef(true)
 
   useEffect(() => {
-    if (players === null && loading == null) {
+    if (players === null && loading === null) {
       fetchPlayers({ setLoading, setPlayers, isMounted })
     }
   }, [players, loading])

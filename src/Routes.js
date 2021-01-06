@@ -6,13 +6,15 @@ import PublicRoute from './components/authRoutes/PublicRoute'
 
 import Home from './components/Home/Home'
 import LogIn from './components/LogIn/LogIn'
+import TheTeam from './components/TheTeam/TheTeam'
+import TheMatches from './components/TheMatches/TheMatches'
+import NotFound from './components/UI/NotFound'
 
 import Dashboard from './components/admin/Dashboard'
 import Matches from './components/admin/Matches/Matches'
 import AddEditMatch from './components/admin/Matches/AddEditMatch'
 import AdminPlayers from './components/admin/players/AdminPlayers'
 import AddEditPlayer from './components/admin/players/AddEditPlayer'
-import TheTeam from './components/TheTeam/TheTeam'
 
 function Routes(props) {
   return (
@@ -70,6 +72,13 @@ function Routes(props) {
         <PublicRoute
           {...props}
           exact
+          component={TheMatches}
+          path='/the_matches'
+          restricted={false}
+        />
+        <PublicRoute
+          {...props}
+          exact
           component={TheTeam}
           path='/the_team'
           restricted={false}
@@ -81,6 +90,7 @@ function Routes(props) {
           component={Home}
           restricted={false}
         />
+        <PublicRoute {...props} exact component={NotFound} restricted={false} />
       </Switch>
     </Layout>
   )
